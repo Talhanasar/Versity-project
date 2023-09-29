@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Online Tour Booking</title>
+
+   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="Css/style.css">
+
+</head>
+<body style="overflow: hidden;">
+   
+<header class="header" data-aos="fade-down">
+   <section class="flex">
+      <a href="index.html" class="logo"><span>T</span>ravel</a>
+      <nav class="navbar">
+         <a href="index.html">home</a>
+         <a href="book.html">Book</a>
+         <a href="package.html">packages</a>
+         <a href="destination.html">destinations</a>
+         <a href="about.html">about</a>
+         <a href="contact.html">contact</a>
+      </nav>
+      <div id="menu-btn" class="fas fa-bars"></div>
+   </section>
+</header>
+
+<div class="container book" data-aos="zoom-out">
+   <section class="flex" data-aos="zoom-in" data-aos-delay="600">
+      <?php if (isset($success_message)) : ?>
+         <div class="success-message">
+            <?php echo $success_message; ?>
+         </div>
+      <?php endif; ?>
+      <?php if (isset($error_message)) : ?>
+         <div class="error-message">
+            <?php echo $error_message; ?>
+         </div>
+      <?php endif; ?>
+      <form action="index.php" method="post">
+         <h3>Book your tour</h3>
+         <p>where to</p>
+         <input type="text" name="place" id="place" required maxlength="50" placeholder="enter tour location" class="box">
+         <p>how many</p>
+         <input type="number" name="people" id="people" min="1" max="10" maxlength="2" placeholder="number of guests" required class="box">
+         <p>arrivals</p>
+         <input type="date" name="arrival" id="arrival" class="box" required>
+         <p>leaving</p>
+         <input type="date" name="leaving" id="leaving" class="box" required>
+         <p>phone</p>
+         <input type="phone" name="phone" id="phone" class="box" required placeholder="enter your phone number">
+         <p>email</p>
+         <input type="email" name="email" id="email" class="box" required placeholder="enter your email">
+         <button class="btn">Book now</button>
+      </form>
+   </section>
+</div>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="JavaScript/Script.js"></script>
+</body>
+</html>
+
+<?php
+$server = "localhost";
+$username = "root";
+$password = "";
+
+$con = mysqli_connect($server, $username, $password);
+
+if (!$con) {
+    die("Connection to this database failed due to " . mysqli_connect_error());
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $people = $_POST['people'];
+    $place = $_POST['place'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $arrival = $_POST['arrival'];
+    $leaving = $_POST['leaving'];
+
+    $sql = "INSERT INTO `info`.`booking` (`Place`, `People`, `Arrivals`, `Leaving`, `Phone`, `Email`, `Submission Date`) VALUES ('$place', '$people', '$arrival', '$leaving', '$phone', '$email', current_timestamp());";
+
+    if ($con->query($sql) === true) {
+        $success_message = "Successfully inserted";
+    } else {
+        $error_message = "Error: " . $sql . "<br>" . $con->error;
+    }
+}
+
+$con->close();
+?>
