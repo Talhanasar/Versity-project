@@ -259,6 +259,11 @@ html{
     height: 20rem;
     transition: .2s linear;
  }
+ .about .grid .box .sharif{
+   width: 26rem;
+   height: 17rem;
+   margin-bottom: 3rem;
+ }
  
  .about .grid .box h3{
     padding: 2rem 0;
