@@ -68,33 +68,3 @@
 </body>
 </html>
 
-<?php
-$server = "localhost";
-$username = "root";
-$password = "";
-
-$con = mysqli_connect($server, $username, $password);
-
-if (!$con) {
-    die("Connection to this database failed due to " . mysqli_connect_error());
-}
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $people = $_POST['people'];
-    $place = $_POST['place'];
-    $phone = $_POST['phone'];
-    $email = $_POST['email'];
-    $arrival = $_POST['arrival'];
-    $leaving = $_POST['leaving'];
-
-    $sql = "INSERT INTO `info`.`booking` (`Place`, `People`, `Arrivals`, `Leaving`, `Phone`, `Email`, `Submission Date`) VALUES ('$place', '$people', '$arrival', '$leaving', '$phone', '$email', current_timestamp());";
-
-    if ($con->query($sql) === true) {
-        $success_message = "Successfully inserted";
-    } else {
-        $error_message = "Error: " . $sql . "<br>" . $con->error;
-    }
-}
-
-$con->close();
-?>
