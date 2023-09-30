@@ -122,7 +122,39 @@ html{
     color: var(--white);
     display: none;
  }
+ .index-body{
+   background: url('../Images/banner.png') no-repeat;
+   background-size: cover;
+   background-position: center center;
+   background-attachment: fixed;
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   flex-direction: column;
+ }
+ .index-body::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: radial-gradient(ellipse at center, rgba(0,0,0,0.5), rgba(0, 0, 0, 0.7) 100%);
+ }
 
+ .index-body h1{
+   color: rgba(255, 255, 255, 0.6);
+   font-size: 3rem;
+   margin: .8rem;
+   z-index: 2;
+ }
+ .index-body p{
+   color: rgba(255, 255, 255, 0.6);
+   font-size: 2rem;
+   z-index: 2;
+ }
  .book{
     background: url('../images/home-bg.jpg') no-repeat rgba(0,0,0,.5);
     background-position: center;
@@ -198,7 +230,6 @@ html{
  }
  
  .about .details{
-    border-radius: .5rem;
     background: url('../images/details-bg.jpg') no-repeat rgba(0,0,0,.5);
     background-position: center;
     background-attachment: fixed;
