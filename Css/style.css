@@ -123,7 +123,7 @@ html{
     display: none;
  }
  .index-body{
-   background: url('../images/banner.png') no-repeat;
+   background: url('../Images/banner.png') no-repeat;
    background-size: cover;
    background-position: center center;
    background-attachment: fixed;
@@ -156,7 +156,7 @@ html{
    z-index: 2;
  }
  .book{
-    background: url('../images/home-bg.jpg') no-repeat rgba(0,0,0,.5);
+    background: url('../Images/home-bg.jpg') no-repeat rgba(0,0,0,.5);
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
@@ -222,7 +222,7 @@ html{
 
  /* design for about html page */
  .about{
-    background: url('../images/about-bg.jpg') no-repeat rgba(0,0,0,.5);
+    background: url('../Images/about-bg.jpg') no-repeat rgba(0,0,0,.5);
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
@@ -230,7 +230,7 @@ html{
  }
  
  .about .details{
-    background: url('../images/details-bg.jpg') no-repeat rgba(0,0,0,.5);
+    background: url('../Images/details-bg.jpg') no-repeat rgba(0,0,0,.5);
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
@@ -317,7 +317,7 @@ html{
  }
  
  .reviews{
-    background: url('../images/reviews-bg.jpg') no-repeat rgba(0,0,0,.5);
+    background: url('../Images/reviews-bg.jpg') no-repeat rgba(0,0,0,.5);
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
@@ -377,7 +377,7 @@ html{
   /* design for destination html page */
 
 .destinations{
-   background: url('../images/destination-bg.jpg') no-repeat rgba(0,0,0,.5);
+   background: url('../Images/destination-bg.jpg') no-repeat rgba(0,0,0,.5);
    background-position: center;
    background-attachment: fixed;
    background-size: cover;
