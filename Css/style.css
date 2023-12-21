@@ -123,7 +123,7 @@ html{
     display: none;
  }
  .index-body{
-   background: url('../Images/banner.png') no-repeat;
+   background: url('../images/banner.png') no-repeat;
    background-size: cover;
    background-position: center center;
    background-attachment: fixed;
